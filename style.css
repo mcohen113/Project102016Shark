@@ -1,6 +1,22 @@
 body {
-background: url(img/underwater.png);
+  background-color: #0000FF;
 
-background-repeat: no-repeat;
-height: 1280px;
 }
+
+.diver {
+  background-color:#FF0000;
+  height:100px;
+  width:75px;
+  bottom: 0;
+  position: absolute;
+}
+
+.shark {
+  background-color: #008800;
+  top: 0;
+  position: absolute;
+  height: 60px;
+  width: 120px;
+  background-position: right;
+}
+
