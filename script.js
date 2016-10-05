@@ -21,21 +21,51 @@
 //             break;
 //     }
 // };
-console.log("larry")
-$(document).ready(function() {
-   $('.diver').keypress(function(event) {
 
-      if (event.target === 38) {
-        console.log(event)
-       $(this).css({bottom:'+=30px'});
+$(document).ready(function() {
+   $('body').keypress(function(event) {
+      console.log('event')
+      if (event.which === 119) {
+        console.log('This is event', event);
+       $('.diver').css({bottom:'+=10px'});
      }
    });
-   $('.diver').keyup(function(event) {
+   $('body').keyup(function(event) {
        $(this).animate({
-           height: '-=30px'
+           height: '-=10px'
        });
    });
-   // $('.diver').click(function() {
-   //     $(this).toggle(3000);
-   // });
 });
+
+
+   $('body').keypress(function(event) {
+      console.log('event')
+      if (event.which === 104) {
+        console.log('This is event', event);
+       $('.diver').css({bottom:'-=10px'});
+     }
+   });
+   $('body').keyup(function(event) {
+       $(this).animate({
+           height: '+=10px'
+       });
+   });
+
+
+
+   $('body').keypress(function(event) {
+      console.log('event')
+      if (event.which === 100) {
+        console.log('This is event', event);
+       $('.diver').css({right:'-=10px'});
+     }
+   });
+   $('body').keyup(function(event) {
+       $(this).animate({
+           height: '+=10px'
+       });
+   });
+
+
+$document
+
