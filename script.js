@@ -22,15 +22,17 @@
 //     }
 // };
 
-$(document).ready(function() {
+// $('body').keypress(function(e){console.log(e)}) to check keys to the console
+
+$(document).ready(function() { //start javascript
    $('body').keypress(function(event) {
       console.log('event')
-      if (event.which === 119) {
-        console.log('This is event', event);
-       $('.diver').css({bottom:'+=10px'});
+      if (event.which === 119) { //assign key to move diver up when "w" is pushed
+        // console.log('This is event', event);
+       $('.diver').css({bottom:'+=10px'}); //by distance of 10px
      }
    });
-   $('body').keyup(function(event) {
+   $('body').keyup(function(event) { //diver stops when key is de-pressed
        $(this).animate({
            height: '-=10px'
        });
@@ -40,8 +42,8 @@ $(document).ready(function() {
 
    $('body').keypress(function(event) {
       console.log('event')
-      if (event.which === 104) {
-        console.log('This is event', event);
+      if (event.which === 122) { //assign key to move diver down when "z" is pushed
+        // console.log('This is event', event);
        $('.diver').css({bottom:'-=10px'});
      }
    });
@@ -52,12 +54,25 @@ $(document).ready(function() {
    });
 
 
+ $('body').keypress(function(event) {
+      console.log('event')
+      if (event.which === 100) { //assign key to move diver left when "a" is pushed
+        // console.log('This is event', event);
+       $('.diver').css({left:'+=10px'});
+     }
+   });
+   $('body').keyup(function(event) {
+       $(this).animate({
+           height: '-=10px'
+       });
+   });
+
 
    $('body').keypress(function(event) {
       console.log('event')
-      if (event.which === 100) {
-        console.log('This is event', event);
-       $('.diver').css({right:'-=10px'});
+      if (event.which === 97) { //assign key to move diver right when "d" is pushed
+        // console.log('This is event', event);
+       $('.diver').css({left:'-=10px'});
      }
    });
    $('body').keyup(function(event) {
@@ -67,5 +82,7 @@ $(document).ready(function() {
    });
 
 
-$document
+// function setInterval() {
+//   $('shark1').animate
+// }
 
