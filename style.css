@@ -15,6 +15,12 @@ body {
   width:75px;
   bottom: 0;
   position: absolute;
+  transition: height 4s;
+
+}
+
+.diver:hover{
+  height: 125px;
 }
 
 #shark1 {
@@ -37,3 +43,9 @@ body {
 
 }
 
+.gameover  {
+  font-size: 300px;
+  background-color: yellow;
+  position: absolute;
+
+}

@@ -46,10 +46,14 @@ var isOverlapped = (function () {
     };
 })();
 $(document).ready(function() { //start javascript
-
     $diver = $('.diver');
     $shark1 = $('#shark1');
-    $sharks = $('.shark')
+    $sharks = $('.shark');
+    $gameover = $('.gameover')
+
+    $gameover.hide();
+
+
 
     $diver.on('swim', function(event){
 
@@ -63,7 +67,7 @@ $(document).ready(function() { //start javascript
     function moveShark(){
       console.log('we movin')
       $sharks.animate({
-          left: 1000
+          left: 800
         },{
           duration: 4000,
           step: function () {
@@ -73,9 +77,9 @@ $(document).ready(function() { //start javascript
             }
           },
           done: $sharks.animate({
-            right: 1000
+            left: -50
           },{
-            duration: 4000,
+            duration: 2500,
             step: function () {
               console.log('moving left')
               if(isOverlapped(this, $diver)){
@@ -102,8 +106,9 @@ $(document).ready(function() { //start javascript
 
 
    $('body')
-    .on('collision',  function(event) {
-      alert("YOU GOT MAIL")
+    .on('collision', function(event) {
+      console.log("YOU GOT MAIL")
+      $gameover.show()
 
     })
     .keypress(function(event) {
@@ -142,11 +147,7 @@ $(document).ready(function() { //start javascript
         //by distance of 10px
      }
    });
-   $('body').keyup(function(event) { //diver stops when key is de-pressed
-       $(this).animate({
-           height: '-=10px'
-       });
-   });
+
 });
 //collision detection from http://stackoverflow.com/questions/4230029/jquery-javascript-collision-detection
 
