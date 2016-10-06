@@ -23,13 +23,123 @@
 // };
 
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
+var isOverlapped = (function () {
+    function getPositions( elem ) {
+        var pos, width, height;
+        pos = $( elem ).position();
+        width = $( elem ).width();
+        height = $( elem ).height();
+        return [ [ pos.left, pos.left + width ], [ pos.top, pos.top + height ] ];
+    }
 
+    function comparePositions( p1, p2 ) {
+        var r1, r2;
+        r1 = p1[0] < p2[0] ? p1 : p2;
+        r2 = p1[0] < p2[0] ? p2 : p1;
+        return r1[1] > r2[0] || r1[0] === r2[0];
+    }
+
+    return function ( a, b ) {
+        var pos1 = getPositions( a ),
+            pos2 = getPositions( b );
+        return comparePositions( pos1[0], pos2[0] ) && comparePositions( pos1[1], pos2[1] );
+    };
+})();
 $(document).ready(function() { //start javascript
-   $('body').keypress(function(event) {
+
+    $diver = $('.diver');
+    $shark1 = $('#shark1');
+    $sharks = $('.shark')
+
+    $diver.on('swim', function(event){
+
+      console.log("I'm swimming");
+
+      if(isOverlapped(this, $shark1)){
+        $diver.trigger('collision')
+      }
+    })
+
+    function moveShark(){
+      console.log('we movin')
+      $sharks.animate({
+          left: 1000
+        },{
+          duration: 4000,
+          step: function () {
+            console.log('moving right')
+            if(isOverlapped(this, $diver)){
+              $diver.trigger('collision')
+            }
+          },
+          done: $sharks.animate({
+            right: 1000
+          },{
+            duration: 4000,
+            step: function () {
+              console.log('moving left')
+              if(isOverlapped(this, $diver)){
+                $diver.trigger('collision')
+              }
+            },
+            complete: moveShark
+          })
+        })
+      } //set shark off the screen so its outside the view, pick a new left
+
+    moveShark()
+
+  //  setInterval(function() {
+  //   $sharks.animate({ left: $(window).width() + 'px' }, 9000, 'linear', function() {
+  //     $(this).css({ left: - 0});
+  //     if(isOverlapped(this, $diver)){
+  //       $diver.trigger('collision')
+  //     }
+  //   });
+  // }, 10);
+
+
+
+
+   $('body')
+    .on('collision',  function(event) {
+      alert("YOU GOT MAIL")
+
+    })
+    .keypress(function(event) {
+
+
+
       console.log('event')
-      if (event.which === 119) { //assign key to move diver up when "w" is pushed
+      switch (event.which){
+        case 119: //w
+          $diver
+            .css({bottom:'+=10px'})
+            .trigger('swim')
+          break;
+
+        case 122: //z
+          $diver
+            .css({bottom:'-=10px'})
+            .trigger('swim')
+          break;
+
+        case 115: //a
+          $diver
+            .css({left:'+=10px'})
+            .trigger('swim')
+          break;
+
+        case 97: //s
+          $diver
+            .css({left:'-=10px'})
+            .trigger('swim')
+          break;
+
+
+      //assign key to move diver up when "w" is pushed
         // console.log('This is event', event);
-       $('.diver').css({bottom:'+=10px'}); //by distance of 10px
+        //by distance of 10px
      }
    });
    $('body').keyup(function(event) { //diver stops when key is de-pressed
@@ -38,51 +148,42 @@ $(document).ready(function() { //start javascript
        });
    });
 });
+//collision detection from http://stackoverflow.com/questions/4230029/jquery-javascript-collision-detection
 
 
-   $('body').keypress(function(event) {
-      console.log('event')
-      if (event.which === 122) { //assign key to move diver down when "z" is pushed
-        // console.log('This is event', event);
-       $('.diver').css({bottom:'-=10px'});
-     }
-   });
-   $('body').keyup(function(event) {
-       $(this).animate({
-           height: '+=10px'
-       });
-   });
+   // $('body').keyup(function(event) {
+   //     $(this).animate({
+   //         height: '+=10px'
+   //     });
+   // });
 
 
- $('body').keypress(function(event) {
-      console.log('event')
-      if (event.which === 100) { //assign key to move diver left when "a" is pushed
-        // console.log('This is event', event);
-       $('.diver').css({left:'+=10px'});
-     }
-   });
-   $('body').keyup(function(event) {
-       $(this).animate({
-           height: '-=10px'
-       });
-   });
+
+   // $('body').keyup(function(event) {
+   //     $(this).animate({
+   //         height: '-=10px'
+   //     });
+   // });
 
 
-   $('body').keypress(function(event) {
-      console.log('event')
-      if (event.which === 97) { //assign key to move diver right when "d" is pushed
-        // console.log('This is event', event);
-       $('.diver').css({left:'-=10px'});
-     }
-   });
-   $('body').keyup(function(event) {
-       $(this).animate({
-           height: '+=10px'
-       });
-   });
+
+   // };
+   // $('body').keyup(function(event) {
+   //     $(this).animate({
+   //         height: '+=10px'
+   //     });
+   // });
+//shark loops across the screen horizontally
+// $(function() {
+
+// });
 
 
-// function setInterval() {
-//   $('shark1').animate
-// }
+
+// $(function) setDiver() {
+//   if ($('diver').css.top = ($('shark2').css.top {
+//           alert ('you got bit!!!')
+//   };  //if top postion of shark = top pos of diver, send alert
+// };
+
 
