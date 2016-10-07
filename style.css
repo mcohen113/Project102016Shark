@@ -44,12 +44,12 @@ body {
 }
 
 #shark3 {
-  background-color: black;
+  background-color: rgb(66, 244, 238);
   top: 70%;
   position: absolute;
   height: 50px;
-  width: 100px;
-  right: 800px;
+  width: 150px;
+  left: 600px;
 
 }
 

@@ -47,8 +47,10 @@ var isOverlapped = (function () {
 })();
 $(document).ready(function() { //start javascript
     $diver = $('.diver');
-    $shark1 = $('#shark1');
     $sharks = $('.shark');
+    $shark1 = $('#shark1');
+    $shark2 = $('#shark2');
+    $shark3 = $('#shark3');
     $gameover = $('.gameover')
 
     $gameover.hide();
@@ -59,14 +61,14 @@ $(document).ready(function() { //start javascript
 
       console.log("I'm swimming");
 
-      if(isOverlapped(this, $shark1)){
+      if(isOverlapped(this, $sharks)){
         $diver.trigger('collision')
       }
     })
 
-    function moveShark(){
+    function moveShark1(){
       console.log('we movin')
-      $sharks.animate({
+      $shark1.animate({
           left: 800
         },{
           duration: 4000,
@@ -76,8 +78,8 @@ $(document).ready(function() { //start javascript
               $diver.trigger('collision')
             }
           },
-          done: $sharks.animate({
-            left: -50
+          done: $shark1.animate({
+            left: Math.floor(Math.random() * 6) + 1
           },{
             duration: 2500,
             step: function () {
@@ -86,12 +88,70 @@ $(document).ready(function() { //start javascript
                 $diver.trigger('collision')
               }
             },
-            complete: moveShark
+            complete: moveShark1
           })
         })
       } //set shark off the screen so its outside the view, pick a new left
 
-    moveShark()
+    moveShark1();
+
+       function moveShark2(){
+      console.log('we movin')
+      $shark2.animate({
+          left: 900
+        },{
+          duration: 3000,
+          step: function () {
+            console.log('moving right')
+            if(isOverlapped(this, $diver)){
+              $diver.trigger('collision')
+            }
+          },
+          done: $shark2.animate({
+            left: Math.floor(Math.random() * 6) + 1
+          },{
+            duration: 1500,
+            step: function () {
+              console.log('moving left')
+              if(isOverlapped(this, $diver)){
+                $diver.trigger('collision')
+              }
+            },
+            complete: moveShark2
+          })
+        })
+      } //set shark off the screen so its outside the view, pick a new left
+
+    moveShark2();
+
+     function moveShark3(){
+      console.log('we movin')
+      $shark3.animate({
+          left: 1100
+        },{
+          duration: 5000,
+          step: function () {
+            console.log('moving right')
+            if(isOverlapped(this, $diver)){
+              $diver.trigger('collision')
+            }
+          },
+          done: $shark3.animate({
+            left: Math.floor(Math.random() * 6) + 1
+          },{
+            duration: 4000,
+            step: function () {
+              console.log('moving left')
+              if(isOverlapped(this, $diver)){
+                $diver.trigger('collision')
+              }
+            },
+            complete: moveShark3
+          })
+        })
+      } //set shark off the screen so its outside the view, pick a new left
+
+    moveShark3();
 
   //  setInterval(function() {
   //   $sharks.animate({ left: $(window).width() + 'px' }, 9000, 'linear', function() {
