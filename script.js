@@ -23,6 +23,8 @@
 // };
 
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
+
+//collision detection from http://stackoverflow.com/questions/4230029/jquery-javascript-collision-detection
 var isOverlapped = (function () {
     function getPositions( elem ) {
         var pos, width, height;
@@ -51,29 +53,48 @@ $(document).ready(function() { //start javascript
     $shark1 = $('#shark1');
     $shark2 = $('#shark2');
     $shark3 = $('#shark3');
-    $gameover = $('.gameover')
-
+    $gameover = $('.gameover');
+    $treasure = $('.treaure');
+    $victory = $('.victory')
+//gameover function is present from start of game, but hidden until triggered by collision
     $gameover.hide();
+    $victory.hide()
+    // $treaure.css.postion.Math.random();
+    // function surfaceDetector(){
+    //   // css method to get divers "bottom"
+    //   if (top = -50px) {
+    //    $('.victory').show()
+    //   }
 
+    // }
 
 
     $diver.on('swim', function(event){
+      //surfaceDetector()
 
       console.log("I'm swimming");
+      // console.log($(window).height());
+      // console.log($(document).height());
+      console.log("$diver $(document).height()", $(document).height());
+      console.log("$diver css bottom:", parseInt($diver.css('bottom')));
 
       if(isOverlapped(this, $sharks)){
         $diver.trigger('collision')
       }
+      if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
+        console.log("you win");
+        $victory.show()
+      }
     })
 
     function moveShark1(){
-      console.log('we movin')
+      // console.log('we movin')
       $shark1.animate({
           left: 800
         },{
           duration: 4000,
           step: function () {
-            console.log('moving right')
+            // console.log('moving right')
             if(isOverlapped(this, $diver)){
               $diver.trigger('collision')
             }
@@ -83,7 +104,7 @@ $(document).ready(function() { //start javascript
           },{
             duration: 2500,
             step: function () {
-              console.log('moving left')
+              // console.log('moving left')
               if(isOverlapped(this, $diver)){
                 $diver.trigger('collision')
               }
@@ -96,13 +117,13 @@ $(document).ready(function() { //start javascript
     moveShark1();
 
        function moveShark2(){
-      console.log('we movin')
+      // console.log('we movin')
       $shark2.animate({
           left: 900
         },{
           duration: 3000,
           step: function () {
-            console.log('moving right')
+            // console.log('moving right')
             if(isOverlapped(this, $diver)){
               $diver.trigger('collision')
             }
@@ -112,7 +133,7 @@ $(document).ready(function() { //start javascript
           },{
             duration: 1500,
             step: function () {
-              console.log('moving left')
+              // console.log('moving left')
               if(isOverlapped(this, $diver)){
                 $diver.trigger('collision')
               }
@@ -125,23 +146,23 @@ $(document).ready(function() { //start javascript
     moveShark2();
 
      function moveShark3(){
-      console.log('we movin')
+      // console.log('we movin')
       $shark3.animate({
           left: 1100
         },{
           duration: 5000,
           step: function () {
-            console.log('moving right')
+            // console.log('moving right')
             if(isOverlapped(this, $diver)){
               $diver.trigger('collision')
             }
           },
           done: $shark3.animate({
-            left: Math.floor(Math.random() * 6) + 1
+            left: Math.floor(Math.random() * 6) + 2
           },{
             duration: 4000,
             step: function () {
-              console.log('moving left')
+              // console.log('moving left')
               if(isOverlapped(this, $diver)){
                 $diver.trigger('collision')
               }
@@ -152,6 +173,8 @@ $(document).ready(function() { //start javascript
       } //set shark off the screen so its outside the view, pick a new left
 
     moveShark3();
+
+    // function diverWin
 
   //  setInterval(function() {
   //   $sharks.animate({ left: $(window).width() + 'px' }, 9000, 'linear', function() {
@@ -164,7 +187,7 @@ $(document).ready(function() { //start javascript
 
 
 
-
+//gameover pops onto screen- becomes unhid when collision happens
    $('body')
     .on('collision', function(event) {
       console.log("YOU GOT MAIL")
@@ -174,7 +197,7 @@ $(document).ready(function() { //start javascript
     .keypress(function(event) {
 
 
-
+//assign events to key to move diver triggered by a key
       console.log('event')
       switch (event.which){
         case 119: //w
@@ -209,7 +232,7 @@ $(document).ready(function() { //start javascript
    });
 
 });
-//collision detection from http://stackoverflow.com/questions/4230029/jquery-javascript-collision-detection
+
 
 
    // $('body').keyup(function(event) {

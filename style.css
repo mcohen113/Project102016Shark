@@ -4,6 +4,7 @@
 }
 
 
+
 body {
   background-color: #0000FF;
 
@@ -11,16 +12,15 @@ body {
 
 .diver {
   background-color:#FF0000;
-  height:100px;
-  width:75px;
+  height: 100px;
+  width: 50px;
   bottom: 0;
   position: absolute;
   transition: height 4s;
-
 }
 
 .diver:hover{
-  height: 125px;
+  height: -50px;
 }
 
 #shark1 {
@@ -35,12 +35,11 @@ body {
 
 #shark2 {
   background-color: black;
-  top: 50%;
+  top: 40%;
   position: absolute;
   height: 50px;
   width: 100px;
   right: 800px;
-
 }
 
 #shark3 {
@@ -53,9 +52,24 @@ body {
 
 }
 
+.treasure {
+  height: 40px;
+  width: 40px;
+  background-color: rgb(244, 188, 66);
+  /*float: right;*/
+}
+
 .gameover  {
   font-size: 300px;
   background-color: yellow;
   position: absolute;
 
+}
+
+.victory
+{
+  font-size: 300px;
+  background-color: rgb(226, 146, 66);
+  position: absolute;
+  z-index: 1;
 }
