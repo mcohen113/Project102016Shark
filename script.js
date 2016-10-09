@@ -22,6 +22,19 @@
 //     }
 // };
 
+//link starter page to game page using button
+    function starter() {
+      var $play = $('#play');
+      var entry = $play.val();
+        url = 'index.html?name=' + encodeURIComponent(entry);
+
+        // document.location.href = url;
+
+    console.log(entry);
+    starter()
+}//start javascript
+
+
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
 
 //collision detection from http://stackoverflow.com/questions/4230029/jquery-javascript-collision-detection
@@ -47,7 +60,8 @@ var isOverlapped = (function () {
         return comparePositions( pos1[0], pos2[0] ) && comparePositions( pos1[1], pos2[1] );
     };
 })();
-$(document).ready(function() { //start javascript
+$(document).ready(function() {
+
     $diver = $('.diver');
     $sharks = $('.shark');
     $shark1 = $('#shark1');
@@ -57,19 +71,13 @@ $(document).ready(function() { //start javascript
     $treasure = $('.treaure');
     $victory = $('.victory')
 //gameover function is present from start of game, but hidden until triggered by collision
+    starter()
     $gameover.hide();
     $victory.hide()
-    // $treaure.css.postion.Math.random();
-    // function surfaceDetector(){
-    //   // css method to get divers "bottom"
-    //   if (top = -50px) {
-    //    $('.victory').show()
-    //   }
-
-    // }
 
 
     $diver.on('swim', function(event){
+
       //surfaceDetector()
 
       console.log("I'm swimming");
@@ -80,7 +88,7 @@ $(document).ready(function() { //start javascript
 
       if(isOverlapped(this, $sharks)){
         $diver.trigger('collision')
-      }
+      }//pasreInt used to match bottom for victory
       if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
         console.log("you win");
         $victory.show()
