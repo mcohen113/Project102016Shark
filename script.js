@@ -5,6 +5,7 @@ var entry;
 
 
 //link starter page to game page using button
+//http:stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
     function starter() {
       var $play = $('#input');
       var entry = $play.val();
