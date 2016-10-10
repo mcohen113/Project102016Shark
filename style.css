@@ -23,21 +23,30 @@ body {
   height: 125px;
 }
 
+
 #shark1 {
   background-color: #008800;
-  top: 0;
+/*  background-image: url(../images/Shark1.png);
+*/  top: 0;
   position: absolute;
-  height: 60px;
+  height: 70px;
   width: 120px;
   left: 700px;
 
+}
+
+@media (max-width: 600px) {
+  .shark, .diver {
+    width: 30px !important;
+    height: 40;
+  }
 }
 
 #shark2 {
   background-color: black;
   top: 40%;
   position: absolute;
-  height: 50px;
+  height: 60px;
   width: 100px;
   right: 800px;
 }
@@ -46,7 +55,7 @@ body {
   background-color: rgb(66, 244, 238);
   top: 70%;
   position: absolute;
-  height: 50px;
+  height: 70px;
   width: 150px;
   left: 600px;
 

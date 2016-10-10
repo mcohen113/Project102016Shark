@@ -1,3 +1,7 @@
+
+var currentDiver = $('.diver');
+var entry;
+// var currentDiver = '';
 // var RightPos = 0;
 // var RightPos2 = 0;
 
@@ -22,17 +26,21 @@
 //     }
 // };
 
+
+
 //link starter page to game page using button
     function starter() {
-      var $play = $('#play');
+      var $play = $('#input');
       var entry = $play.val();
-        url = 'index.html?name=' + encodeURIComponent(entry);
+        // url = 'index.html?name=' + encodeURIComponent(entry);
+        url = 'index.html?name=' + entry;
 
-        // document.location.href = url;
+        document.location.href = url;
+
 
     console.log(entry);
-    starter()
-}//start javascript
+
+}
 
 
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
@@ -71,9 +79,14 @@ $(document).ready(function() {
     $treasure = $('.treaure');
     $victory = $('.victory')
 //gameover function is present from start of game, but hidden until triggered by collision
-    starter()
+    // starter()
     $gameover.hide();
     $victory.hide()
+    console.log(window.location.search)
+    // var currentDiver = $('.diver');
+
+
+        currentDiver.text(window.location.search.split('=')[0]);
 
 
     $diver.on('swim', function(event){
@@ -94,6 +107,8 @@ $(document).ready(function() {
         $victory.show()
       }
     })
+
+
 
     function moveShark1(){
       // console.log('we movin')
