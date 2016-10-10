@@ -86,7 +86,7 @@ $(document).ready(function() {
     // var currentDiver = $('.diver');
 
 
-        currentDiver.text(window.location.search.split('=')[0]);
+        currentDiver.text(window.location.search.split('=')[1]);
 
 
     $diver.on('swim', function(event){

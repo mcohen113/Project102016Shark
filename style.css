@@ -25,12 +25,11 @@ body {
 
 
 #shark1 {
-  background-color: #008800;
-/*  background-image: url(../images/Shark1.png);
-*/  top: 0;
+  background-color: transparent;
+  top: 0;
   position: absolute;
-  height: 70px;
-  width: 120px;
+  height: 110px;
+  width: 140px;
   left: 700px;
 
 }
@@ -43,7 +42,7 @@ body {
 }
 
 #shark2 {
-  background-color: black;
+  background-color: blue;
   top: 40%;
   position: absolute;
   height: 60px;
@@ -52,11 +51,11 @@ body {
 }
 
 #shark3 {
-  background-color: rgb(66, 244, 238);
+  background-color: blue;
   top: 70%;
   position: absolute;
-  height: 70px;
-  width: 150px;
+  height: 140px;
+  width: 200px;
   left: 600px;
 
 }
