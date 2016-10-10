@@ -1,30 +1,6 @@
 
 var currentDiver = $('.diver');
 var entry;
-// var currentDiver = '';
-// var RightPos = 0;
-// var RightPos2 = 0;
-
-// function Red_Box(){
-// var elem = document.getElementById("diver");
-// //var pos = 0;
-// RightPos = RightPos + 5;
-// //console.log(RightPos);
-// var currentPosition;
-// var moveBy = '30px';
-
-// document.onkeydown = function(e) {
-//     switch (e.keyCode) {
-//         case 39:
-//             YellowBox_Move();
-
-//             break;
-//         case 90:
-//             //alert('right');
-//             Red_Box();
-//             break;
-//     }
-// };
 
 
 
@@ -41,7 +17,6 @@ var entry;
     console.log(entry);
 
 }
-
 
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
 
@@ -78,12 +53,11 @@ $(document).ready(function() {
     $gameover = $('.gameover');
     $treasure = $('.treaure');
     $victory = $('.victory')
+
 //gameover function is present from start of game, but hidden until triggered by collision
-    // starter()
     $gameover.hide();
     $victory.hide()
     console.log(window.location.search)
-    // var currentDiver = $('.diver');
 
 
         currentDiver.text(window.location.search.split('=')[1]);
@@ -91,25 +65,23 @@ $(document).ready(function() {
 
     $diver.on('swim', function(event){
 
-      //surfaceDetector()
-
-      console.log("I'm swimming");
-      // console.log($(window).height());
-      // console.log($(document).height());
+      // console.log("I'm swimming");
+      // // console.log($(window).height());
+      // // console.log($(document).height());
       console.log("$diver $(document).height()", $(document).height());
       console.log("$diver css bottom:", parseInt($diver.css('bottom')));
-
+//if
       if(isOverlapped(this, $sharks)){
         $diver.trigger('collision')
-      }//pasreInt used to match bottom for victory
+      }//pasreInt used to match bottom for victory when diver reaches top of screen
       if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
-        console.log("you win");
-        $victory.show()
+           console.log("you win");
+            $victory.show()
       }
     })
 
 
-
+//the 3 sharks are moving at different speeds back and forth
     function moveShark1(){
       // console.log('we movin')
       $shark1.animate({
@@ -135,7 +107,7 @@ $(document).ready(function() {
             complete: moveShark1
           })
         })
-      } //set shark off the screen so its outside the view, pick a new left
+      }
 
     moveShark1();
 
@@ -193,21 +165,9 @@ $(document).ready(function() {
             complete: moveShark3
           })
         })
-      } //set shark off the screen so its outside the view, pick a new left
+      }
 
     moveShark3();
-
-    // function diverWin
-
-  //  setInterval(function() {
-  //   $sharks.animate({ left: $(window).width() + 'px' }, 9000, 'linear', function() {
-  //     $(this).css({ left: - 0});
-  //     if(isOverlapped(this, $diver)){
-  //       $diver.trigger('collision')
-  //     }
-  //   });
-  // }, 10);
-
 
 
 //gameover pops onto screen- becomes unhid when collision happens
@@ -215,16 +175,15 @@ $(document).ready(function() {
     .on('collision', function(event) {
       console.log("YOU GOT MAIL")
       $gameover.show()
-
     })
     .keypress(function(event) {
 
-
 //assign events to key to move diver triggered by a key
+
       console.log('event')
       switch (event.which){
         case 119: //w
-          $diver
+          $diver//by distance of 10 px
             .css({bottom:'+=10px'})
             .trigger('swim')
           break;
@@ -248,49 +207,12 @@ $(document).ready(function() {
           break;
 
 
-      //assign key to move diver up when "w" is pushed
-        // console.log('This is event', event);
-        //by distance of 10px
+
      }
    });
 
 });
 
 
-
-   // $('body').keyup(function(event) {
-   //     $(this).animate({
-   //         height: '+=10px'
-   //     });
-   // });
-
-
-
-   // $('body').keyup(function(event) {
-   //     $(this).animate({
-   //         height: '-=10px'
-   //     });
-   // });
-
-
-
-   // };
-   // $('body').keyup(function(event) {
-   //     $(this).animate({
-   //         height: '+=10px'
-   //     });
-   // });
-//shark loops across the screen horizontally
-// $(function() {
-
-// });
-
-
-
-// $(function) setDiver() {
-//   if ($('diver').css.top = ($('shark2').css.top {
-//           alert ('you got bit!!!')
-//   };  //if top postion of shark = top pos of diver, send alert
-// };
 
 
