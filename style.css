@@ -71,7 +71,7 @@ body {
 
 .gameover  {
   font-size: 300px;
-  background-color: green;
+  background-color: yellow;
   position: absolute;
 
 }

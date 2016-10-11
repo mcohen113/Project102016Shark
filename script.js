@@ -4,19 +4,15 @@ var entry;
 
 
 
-//link starter page to game page using button
+//link starter page to game page using button and transfer name to player
 //http:stackoverflow.com/questions/17502071/transfer-data-from-one-html-file-to-another
+//http://stackoverflow.com/questions/4088467/get-the-value-in-an-input-text-box
     function starter() {
       var $play = $('#input');
       var entry = $play.val();
-        // url = 'index.html?name=' + encodeURIComponent(entry);
         url = 'index.html?name=' + entry;
-
         document.location.href = url;
-
-
     console.log(entry);
-
 }
 
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
@@ -52,7 +48,7 @@ $(document).ready(function() {
     $shark2 = $('#shark2');
     $shark3 = $('#shark3');
     $gameover = $('.gameover');
-    $treasure = $('.treaure');
+    $treasure = $('.treasure');
     $victory = $('.victory')
 
 //gameover function is present from start of game, but hidden until triggered by collision
@@ -170,7 +166,6 @@ $(document).ready(function() {
 
     moveShark3();
 
-
 //gameover pops onto screen- becomes unhid when collision happens
    $('body')
     .on('collision', function(event) {
@@ -180,7 +175,6 @@ $(document).ready(function() {
     .keypress(function(event) {
 
 //assign events to key to move diver triggered by a key
-
       console.log('event')
       switch (event.which){
         case 119: //w
