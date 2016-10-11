@@ -1,31 +1,46 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+  <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
-  <title></title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class= "victory">YOU WIN!!!</div>
+    <title>SHARK</title>
+ <!--  <link rel="stylesheet" href="style."> -->
+    <link href="https://fonts.googleapis.com/css?family=Almendra+SC" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="script.js" type="text/javascript" charset="utf-8" async defer></script>
+  </head>
+    <body>
+      <style>
+          body {
+            background-color: rgb(6, 119, 244);
+            text-align: center;
+                }
 
+          h1 {
+                font-size: 200px;
+                font-family:'Almendra SC', serif;
 
-  <div class="diver">
-<!--     <img src="images/diver1.png" alt="" height=100% width=100%>
- -->  </div>
-    <div class="shark" id="shark1">
-      <img src="images/Shark1.png" alt="" height=100% width=100%>
-    </div>
-    <div class="shark" id="shark2">
-      <img src="images/shark2.png" alt="" height=100% width=100%>
-    </div>
-    <div class="shark" id="shark3">
-      <img src="images/shark3.png" alt="" height=100% width=100%>
-    </div>
+              }
 
+           #swim {
+            font-size: 60px;
+            background-color: rgb(66, 244, 155)
+            border-color: black;
+            border-left: 30px;
+            border-right: 30px;
+            position: center;
+           }
 
-        <div class=gameover>GAME OVER!!!</div>
-</body>
+      </style>
+    <h1>SHARK!!!</h1>
+<!-- Form to transmit name to game page -->
+      <form action="index.html">
+      First name:<br>
+          <input id="input" type="text" name="firstname" value="name">
+
+            <input onclick="starter()" type="submit" value="Swim">
+      </form>
+
+  </body>
 </html>
