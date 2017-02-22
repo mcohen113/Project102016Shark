@@ -10,7 +10,7 @@ var entry;
     function starter() {
       var $play = $('#input');
       var entry = $play.val();
-        url = 'index.html?name=' + entry;
+          url = 'index.html?name=' + entry;
         document.location.href = url;
     // console.log(entry);
 }
@@ -53,9 +53,9 @@ $(document).ready(function() {
 
 
 //gameover function is present from start of game, but hidden until triggered by collision
+    $playAgain.hide();
     $gameover.hide();
     $victory.hide();
-    $playAgain.hide();
     console.log(window.location.search)
 
 
@@ -76,6 +76,7 @@ $(document).ready(function() {
       }//pasreInt used to match bottom for victory when diver reaches top of screen
       if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
            console.log("you win");
+            $playAgain.show()
             $victory.show()
       }
     })
@@ -174,6 +175,7 @@ $(document).ready(function() {
    $('body')
     .on('collision', function(event) {
       console.log("YOU GOT MAIL")
+      $playAgain.show()
       $gameover.show()
     })
     .keypress(function(event) {
