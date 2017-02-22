@@ -61,10 +61,9 @@ $(document).ready(function() {
 
 
     $diver.on('swim', function(event){
-
       // console.log("I'm swimming");
-      // // console.log($(window).height());
-      // // console.log($(document).height());
+      // console.log($(window).height());
+      // console.log($(document).height());
       console.log("$diver $(document).height()",
       $(document).height());
       console.log("$diver css bottom:",
@@ -78,7 +77,6 @@ $(document).ready(function() {
             $victory.show()
       }
     })
-
 
 //the 3 sharks are moving at different speeds back and forth
     function moveShark1(){
@@ -125,7 +123,7 @@ $(document).ready(function() {
           done: $shark2.animate({
             left: Math.floor(Math.random() * 6) + 1
           },{
-            duration: 1500,
+            duration: 2000,
             step: function () {
               // console.log('moving left')
               if(isOverlapped(this, $diver)){
