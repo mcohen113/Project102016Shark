@@ -48,12 +48,14 @@ $(document).ready(function() {
     $shark2 = $('#shark2');
     $shark3 = $('#shark3');
     $gameover = $('.gameover');
-    $treasure = $('.treasure');
-    $victory = $('.victory')
+    $victory = $('.victory');
+    $playAgain = $('.play-button')
+
 
 //gameover function is present from start of game, but hidden until triggered by collision
     $gameover.hide();
-    $victory.hide()
+    $victory.hide();
+    $playAgain.hide();
     console.log(window.location.search)
 
 
@@ -165,6 +167,8 @@ $(document).ready(function() {
       }
 
     moveShark3();
+
+
 
 //gameover pops onto screen- becomes unhid when collision happens
    $('body')
