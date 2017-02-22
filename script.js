@@ -140,7 +140,7 @@ $(document).ready(function() {
      function moveShark3(){
       // console.log('we movin')
       $shark3.animate({
-          left: 1100
+          left: 1000
         },{
           duration: 5000,
           step: function () {
@@ -200,9 +200,6 @@ $(document).ready(function() {
             .css({left:'-=10px'})
             .trigger('swim')
           break;
-
-
-
      }
    });
 
