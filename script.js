@@ -12,7 +12,7 @@ var entry;
       var entry = $play.val();
         url = 'index.html?name=' + entry;
         document.location.href = url;
-    console.log(entry);
+    // console.log(entry);
 }
 
 // $('body').keypress(function(e){console.log(e)}) to check keys to the console
@@ -65,8 +65,10 @@ $(document).ready(function() {
       // console.log("I'm swimming");
       // // console.log($(window).height());
       // // console.log($(document).height());
-      console.log("$diver $(document).height()", $(document).height());
-      console.log("$diver css bottom:", parseInt($diver.css('bottom')));
+      console.log("$diver $(document).height()",
+      $(document).height());
+      console.log("$diver css bottom:",
+      parseInt($diver.css('bottom')));
 //if
       if(isOverlapped(this, $sharks)){
         $diver.trigger('collision')
