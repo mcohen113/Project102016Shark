@@ -10,7 +10,7 @@ var entry;
     function starter() {
       var $play = $('#input');
       var entry = $play.val();
-          url = 'index.html?name=' + entry;
+        url = 'index.html?name=' + entry;
         document.location.href = url;
     // console.log(entry);
 }
@@ -53,9 +53,9 @@ $(document).ready(function() {
 
 
 //gameover function is present from start of game, but hidden until triggered by collision
-    $playAgain.hide();
     $gameover.hide();
     $victory.hide();
+    $playAgain.hide();
     console.log(window.location.search)
 
 
