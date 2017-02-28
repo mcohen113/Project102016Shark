@@ -3,8 +3,6 @@
   to { background-position: 100% 0; }
 }
 
-
-
 body {
   background-color: #0c2a99;
 }
@@ -62,27 +60,21 @@ body {
   background-color: rgb(244, 188, 66);
 }
 
-.gameover  {
+#gameOver, #victory {
   font-size: 300px;
-  background-color: yellow;
   position: absolute;
-
 }
 
-.victory
-{
-  font-size: 300px;
+#gameOver  {
+  background-color: yellow;
+}
+
+#victory {
   background-color: rgb(226, 146, 66);
-  position: absolute;
   z-index: 1;
 }
 
-/*.play-button {
-  position: relative;
-  left: 50%;
-}*/
-
-#myButton {
+#gameOverButton, #victoryButton {
   position: absolute;
   left: 40%;
   bottom: 42%;
@@ -100,10 +92,6 @@ body {
   text-decoration:none;
   text-shadow:0px 1px 50px #2f6627;
 }
-#myButton:hover {
+#gameOverButton:hover, #victoryButton:hover {
   background-color:#5cbf2a;
-}
-#myButton:active {
-  position:relative;
-  top:1px;
 }

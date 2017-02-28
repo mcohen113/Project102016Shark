@@ -47,15 +47,24 @@ $(document).ready(function() {
     $shark1 = $('#shark1');
     $shark2 = $('#shark2');
     $shark3 = $('#shark3');
-    $gameover = $('.gameover');
-    $victory = $('.victory');
-    $playAgain = $('.play-button')
+    $gameOver = $('#gameOver');
+    $victory = $('#victory');
 
+    $victoryButton = $('#victoryButton');
+    $gameOverButton = $('#gameOverButton');
+    $reload = function(e) {
+      e.preventDefault();
+      window.location.reload(true);
+    }
+
+
+    $victoryButton.on('click', $reload)
+    $gameOverButton.on('click', $reload)
 
 //gameover function is present from start of game, but hidden until triggered by collision
-    $gameover.hide();
+    $gameOver.hide();
     $victory.hide();
-    $playAgain.hide();
+
     console.log(window.location.search)
 
 
@@ -76,7 +85,7 @@ $(document).ready(function() {
       }//pasreInt used to match bottom for victory when diver reaches top of screen
       if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
            console.log("you win");
-            $playAgain.show()
+
             $victory.show()
       }
     })
@@ -171,12 +180,12 @@ $(document).ready(function() {
 
 
 
-//gameover pops onto screen- becomes unhid when collision happens
+//gameOver pops onto screen- becomes unhid when collision happens
    $('body')
     .on('collision', function(event) {
       console.log("YOU GOT MAIL")
-      $playAgain.show()
-      $gameover.show()
+     // $playAgain.show()
+      $gameOver.show()
     })
     .keypress(function(event) {
 
