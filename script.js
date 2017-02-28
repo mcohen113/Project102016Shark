@@ -1,5 +1,5 @@
 
-var currentDiver = $('.diver');
+var currentDiver = $('#diver');
 var entry;
 
 
@@ -42,7 +42,7 @@ var isOverlapped = (function () {
 })();
 $(document).ready(function() {
 
-    $diver = $('.diver');
+    $diver = $('#diver');
     $sharks = $('.shark');
     $shark1 = $('#shark1');
     $shark2 = $('#shark2');
@@ -61,7 +61,7 @@ $(document).ready(function() {
     $victoryButton.on('click', $reload)
     $gameOverButton.on('click', $reload)
 
-//gameover function is present from start of game, but hidden until triggered by collision
+    //gameover function is present from start of game, but hidden until triggered by collision
     $gameOver.hide();
     $victory.hide();
 
@@ -72,17 +72,7 @@ $(document).ready(function() {
 
 
     $diver.on('swim', function(event){
-      // console.log("I'm swimming");
-      // console.log($(window).height());
-      // console.log($(document).height());
-      console.log("$diver $(document).height()",
-      $(document).height());
-      console.log("$diver css bottom:",
-      parseInt($diver.css('bottom')));
-//if
-      if(isOverlapped(this, $sharks)){
-        $diver.trigger('collision')
-      }//pasreInt used to match bottom for victory when diver reaches top of screen
+      //pasreInt used to match bottom for victory when diver reaches top of screen
       if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
            console.log("you win");
 
@@ -90,7 +80,7 @@ $(document).ready(function() {
       }
     })
 
-//the 3 sharks are moving at different speeds back and forth
+    //the 3 sharks are moving at different speeds back and forth
     function moveShark1(){
       // console.log('we movin')
       $shark1.animate({
@@ -183,7 +173,7 @@ $(document).ready(function() {
 //gameOver pops onto screen- becomes unhid when collision happens
    $('body')
     .on('collision', function(event) {
-      console.log("YOU GOT MAIL")
+      // console.log("YOU GOT MAIL")
      // $playAgain.show()
       $gameOver.show()
     })
