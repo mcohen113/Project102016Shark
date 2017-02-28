@@ -54,7 +54,7 @@ $(document).ready(function() {
     $gameOverButton = $('#gameOverButton');
     $reload = function(e) {
       e.preventDefault();
-      window.location.reload(true);
+      window.location.reload(false);
     }
 
 
