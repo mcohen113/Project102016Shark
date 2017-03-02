@@ -16,10 +16,6 @@ body {
   transition: height 4s;
 }
 
-#diver:hover{
-  height: 125px;
-}
-
 
 #shark1 {
   background-color: transparent;
