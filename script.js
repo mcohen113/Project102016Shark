@@ -42,7 +42,7 @@ var isOverlapped = (function () {
 })();
 $(document).ready(function() {
 
-    $diver = $('#diver');
+    $diver1 = $('#diver1');
     $sharks = $('.shark');
     $shark1 = $('#shark1');
     $shark2 = $('#shark2');
@@ -71,9 +71,9 @@ $(document).ready(function() {
         currentDiver.text(window.location.search.split('=')[1]);
 
 
-    $diver.on('swim', function(event){
+    $diver1.on('swim', function(event){
       //pasreInt used to match bottom for victory when diver reaches top of screen
-      if(  parseInt($diver.css('bottom') ) > $(document).height()  ) {
+      if(  parseInt($diver1.css('bottom') ) > $(document).height()  ) {
            console.log("you win");
 
             $victory.show()
@@ -89,8 +89,8 @@ $(document).ready(function() {
           duration: 4000,
           step: function () {
             // console.log('moving right')
-            if(isOverlapped(this, $diver)){
-              $diver.trigger('collision')
+            if(isOverlapped(this, $diver1)){
+              $diver1.trigger('collision')
             }
           },
           done: $shark1.animate({
@@ -99,8 +99,8 @@ $(document).ready(function() {
             duration: 2500,
             step: function () {
               // console.log('moving left')
-              if(isOverlapped(this, $diver)){
-                $diver.trigger('collision')
+              if(isOverlapped(this, $diver1)){
+                $diver1.trigger('collision')
               }
             },
             complete: moveShark1
@@ -118,8 +118,8 @@ $(document).ready(function() {
           duration: 3000,
           step: function () {
             // console.log('moving right')
-            if(isOverlapped(this, $diver)){
-              $diver.trigger('collision')
+            if(isOverlapped(this, $diver1)){
+              $diver1.trigger('collision')
             }
           },
           done: $shark2.animate({
@@ -128,8 +128,8 @@ $(document).ready(function() {
             duration: 2000,
             step: function () {
               // console.log('moving left')
-              if(isOverlapped(this, $diver)){
-                $diver.trigger('collision')
+              if(isOverlapped(this, $diver1)){
+                $diver1.trigger('collision')
               }
             },
             complete: moveShark2
@@ -147,8 +147,8 @@ $(document).ready(function() {
           duration: 5000,
           step: function () {
             // console.log('moving right')
-            if(isOverlapped(this, $diver)){
-              $diver.trigger('collision')
+            if(isOverlapped(this, $diver1)){
+              $diver1.trigger('collision')
             }
           },
           done: $shark3.animate({
@@ -157,8 +157,8 @@ $(document).ready(function() {
             duration: 4000,
             step: function () {
               // console.log('moving left')
-              if(isOverlapped(this, $diver)){
-                $diver.trigger('collision')
+              if(isOverlapped(this, $diver1)){
+                $diver1.trigger('collision')
               }
             },
             complete: moveShark3
@@ -183,25 +183,25 @@ $(document).ready(function() {
       console.log('event')
       switch (event.which){
         case 119: //w
-          $diver//by distance of 10 px
+          $diver1//by distance of 10 px
             .css({bottom:'+=10px'})
             .trigger('swim')
           break;
 
         case 122: //z
-          $diver
+          $diver1
             .css({bottom:'-=10px'})
             .trigger('swim')
           break;
 
         case 115: //a
-          $diver
+          $diver1
             .css({left:'+=10px'})
             .trigger('swim')
           break;
 
         case 97: //s
-          $diver
+          $diver1
             .css({left:'-=10px'})
             .trigger('swim')
           break;
