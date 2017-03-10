@@ -14,8 +14,14 @@ body {
   position: absolute;
   transition: height 4s;
 }
+
 #diver1 {
   background-color: #FF0000;
+  right: 50%;
+}
+
+#diver2 {
+  background-color: darkgreen;
 }
 
 #shark1 {

@@ -66,6 +66,10 @@ $(document).ready(function() {
         $diver: $('#diver1'),
         controls: {119: UP, 122: DOWN, 115: LEFT, 97: RIGHT }
       },
+      {
+        $diver: $('#diver2'),
+        controls: {105: UP, 109: DOWN, 107: LEFT, 106: RIGHT }
+      }
     ]
 
 
@@ -170,7 +174,9 @@ $(document).ready(function() {
     })
     .keypress(function(event) {
       divers.forEach(function(d) {
+        console.log('considering controls', event.which, d.controls)
         if (event.which in d.controls) {
+          console.log('triggering swim')
           d.$diver
             .css(d.controls[event.which])
             .trigger('swim')
