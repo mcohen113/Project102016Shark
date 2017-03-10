@@ -42,7 +42,6 @@ var isOverlapped = (function () {
 })();
 $(document).ready(function() {
 
-    $diver1 = $('#diver1');
     $sharks = $('.shark');
     $shark1 = $('#shark1');
     $shark2 = $('#shark2');
@@ -57,6 +56,18 @@ $(document).ready(function() {
       window.location.reload(false);
     }
 
+    var UP = {bottom: '+=10px'}
+    var DOWN = {bottom: '-=10px'}
+    var LEFT = {left: '+=10px'}
+    var RIGHT = {left: '-=10px'}
+
+    var divers = [
+      {
+        $diver: $('#diver1'),
+        controls: {119: UP, 122: DOWN, 115: LEFT, 97: RIGHT }
+      },
+    ]
+
 
     $victoryButton.on('click', $reload)
     $gameOverButton.on('click', $reload)
@@ -69,16 +80,26 @@ $(document).ready(function() {
 
 
         currentDiver.text(window.location.search.split('=')[1]);
-
-
-    $diver1.on('swim', function(event){
+    function handleDiverSwim(event){
       //pasreInt used to match bottom for victory when diver reaches top of screen
-      if(  parseInt($diver1.css('bottom') ) > $(document).height()  ) {
+      if(  parseInt($(this).css('bottom') ) > $(document).height()  ) {
            console.log("you win");
 
             $victory.show()
       }
+    }
+    divers.forEach(function (d) {
+      d.$diver.on('swim', handleDiverSwim)
     })
+
+    function handleSharkMove() {
+      var shark = this;
+      divers.forEach(function (d) {
+        if(isOverlapped(shark, d.$diver)) {
+          d.$diver.trigger('collision');
+        }
+      })
+    }
 
     //the 3 sharks are moving at different speeds back and forth
     function moveShark1(){
@@ -87,22 +108,12 @@ $(document).ready(function() {
           left: 800
         },{
           duration: 4000,
-          step: function () {
-            // console.log('moving right')
-            if(isOverlapped(this, $diver1)){
-              $diver1.trigger('collision')
-            }
-          },
+          step: handleSharkMove,
           done: $shark1.animate({
             left: Math.floor(Math.random() * 6) + 1
           },{
             duration: 2500,
-            step: function () {
-              // console.log('moving left')
-              if(isOverlapped(this, $diver1)){
-                $diver1.trigger('collision')
-              }
-            },
+            step: handleSharkMove,
             complete: moveShark1
           })
         })
@@ -116,22 +127,12 @@ $(document).ready(function() {
           left: 900
         },{
           duration: 3000,
-          step: function () {
-            // console.log('moving right')
-            if(isOverlapped(this, $diver1)){
-              $diver1.trigger('collision')
-            }
-          },
+          step: handleSharkMove,
           done: $shark2.animate({
             left: Math.floor(Math.random() * 6) + 1
           },{
             duration: 2000,
-            step: function () {
-              // console.log('moving left')
-              if(isOverlapped(this, $diver1)){
-                $diver1.trigger('collision')
-              }
-            },
+            step: handleSharkMove,
             complete: moveShark2
           })
         })
@@ -145,22 +146,12 @@ $(document).ready(function() {
           left: 1000
         },{
           duration: 5000,
-          step: function () {
-            // console.log('moving right')
-            if(isOverlapped(this, $diver1)){
-              $diver1.trigger('collision')
-            }
-          },
+          step: handleSharkMove,
           done: $shark3.animate({
             left: Math.floor(Math.random() * 6) + 2
           },{
             duration: 4000,
-            step: function () {
-              // console.log('moving left')
-              if(isOverlapped(this, $diver1)){
-                $diver1.trigger('collision')
-              }
-            },
+            step: handleSharkMove,
             complete: moveShark3
           })
         })
@@ -178,34 +169,15 @@ $(document).ready(function() {
       $gameOver.show()
     })
     .keypress(function(event) {
-
+      divers.forEach(function(d) {
+        if (event.which in d.controls) {
+          d.$diver
+            .css(d.controls[event.which])
+            .trigger('swim')
+        }
+      })
 //assign events to key to move diver triggered by a key
       console.log('event')
-      switch (event.which){
-        case 119: //w
-          $diver1//by distance of 10 px
-            .css({bottom:'+=10px'})
-            .trigger('swim')
-          break;
-
-        case 122: //z
-          $diver1
-            .css({bottom:'-=10px'})
-            .trigger('swim')
-          break;
-
-        case 115: //a
-          $diver1
-            .css({left:'+=10px'})
-            .trigger('swim')
-          break;
-
-        case 97: //s
-          $diver1
-            .css({left:'-=10px'})
-            .trigger('swim')
-          break;
-     }
    });
 
 });
