@@ -75,7 +75,8 @@ $(document).ready(function() {
 
     $victoryButton.on('click', $reload)
     $gameOverButton.on('click', $reload)
-
+    // make 2nd gameover and victory buttons saying as hidden divs
+    //tie them to the player with conditionals, or switch statement
     //gameover function is present from start of game, but hidden until triggered by collision
     $gameOver.hide();
     $victory.hide();
