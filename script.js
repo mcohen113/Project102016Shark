@@ -48,7 +48,9 @@ $(document).ready(function() {
     $shark2 = $('#shark2');
     $shark3 = $('#shark3');
     $gameOver = $('#gameOver');
-    $victory = $('#victory');
+    // $victory = $('#victory');
+    $victoryRed = $('#victoryRed');
+
 
     $victoryButton = $('#victoryButton');
     $gameOverButton = $('#gameOverButton');
@@ -80,18 +82,18 @@ $(document).ready(function() {
     //tie them to the player with conditionals, or switch statement
     //gameover function is present from start of game, but hidden until triggered by collision
     $gameOver.hide();
-    $victory.hide();
-
+    // $victory.hide();
+    $victoryRed.hide();
     console.log(window.location.search)
 
 
         currentDiver.text(window.location.search.split('=')[1]);
     function handleDiverSwim(event){
       //pasreInt used to match bottom for victory when diver reaches top of screen
-      if(  parseInt($(this).css('bottom') ) > $(document).height()  ) {
+      if( parseInt($('#diver1').css('bottom') ) > $(document).height() ) {
            console.log("you win");
 
-            $victory.show()
+            $victoryRed.show()
       }
     }
     divers.forEach(function (d) {
@@ -189,7 +191,4 @@ $(document).ready(function() {
    });
 
 });
-
-
-
 
