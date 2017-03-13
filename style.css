@@ -63,7 +63,7 @@ body {
   background-color: rgb(244, 188, 66);
 }
 
-#gameOver, #victory, #victoryRed {
+#gameOver, #victory, #victoryRed, #victoryGreen {
   font-size: 300px;
   position: absolute;
 }
@@ -79,6 +79,11 @@ body {
 
 #victoryRed {
 background-color: rgb(163, 24, 33);
+  z-index: 1;
+}
+
+#victoryGreen {
+background-color: rgb(15, 91, 21);
   z-index: 1;
 }
 

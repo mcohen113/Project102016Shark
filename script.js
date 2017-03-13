@@ -50,7 +50,7 @@ $(document).ready(function() {
     $gameOver = $('#gameOver');
     // $victory = $('#victory');
     $victoryRed = $('#victoryRed');
-
+    $victoryGreen = $('#victoryGreen')
 
     $victoryButton = $('#victoryButton');
     $gameOverButton = $('#gameOverButton');
@@ -83,6 +83,7 @@ $(document).ready(function() {
     //gameover function is present from start of game, but hidden until triggered by collision
     $gameOver.hide();
     // $victory.hide();
+    $victoryGreen.hide();
     $victoryRed.hide();
     console.log(window.location.search)
 
@@ -99,16 +100,20 @@ $(document).ready(function() {
     }
 
     function handleGreenDiverSwim(event){
-            if( parseInt($('#diver2').css('bottom') ) > $(document).height() ) {
+      if( parseInt($('#diver2').css('bottom') ) > $(document).height() ) {
            console.log("green wins");
 
-            $victoryRed.show()
+            $victoryGreen.show()
       }
 
     }
 
     divers.forEach(function (d) {
-      d.$diver.on('swim', handleRedDiverSwim, handleGreenDiverSwim)
+      d.$diver.on('swim', handleRedDiverSwim)
+    })
+
+    divers.forEach(function (d) {
+      d.$diver.on('swim', handleGreenDiverSwim)
     })
 
     function handleSharkMove() {
