@@ -40,6 +40,7 @@ var isOverlapped = (function () {
         return comparePositions( pos1[0], pos2[0] ) && comparePositions( pos1[1], pos2[1] );
     };
 })();
+
 $(document).ready(function() {
 
     $sharks = $('.shark');

@@ -63,7 +63,7 @@ body {
   background-color: rgb(244, 188, 66);
 }
 
-#gameOver, #victory {
+#gameOver, #victory, #victoryButtonRed {
   font-size: 300px;
   position: absolute;
 }
@@ -72,12 +72,17 @@ body {
   background-color: yellow;
 }
 
-#victory {
+#victory,  {
   background-color: rgb(226, 146, 66);
   z-index: 1;
 }
 
-#gameOverButton, #victoryButton {
+#victoryButtonRed {
+background-color: rgb(163, 24, 33);
+  z-index: 1;
+}
+
+#gameOverButton, #victoryButton, #victoryButtonRed {
   position: absolute;
   left: 40%;
   bottom: 42%;
