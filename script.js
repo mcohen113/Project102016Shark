@@ -88,16 +88,27 @@ $(document).ready(function() {
 
 
         currentDiver.text(window.location.search.split('=')[1]);
-    function handleDiverSwim(event){
+    function handleRedDiverSwim(event){
       //pasreInt used to match bottom for victory when diver reaches top of screen
       if( parseInt($('#diver1').css('bottom') ) > $(document).height() ) {
-           console.log("you win");
+           console.log("red wins");
 
             $victoryRed.show()
       }
+
     }
+
+    function handleGreenDiverSwim(event){
+            if( parseInt($('#diver2').css('bottom') ) > $(document).height() ) {
+           console.log("green wins");
+
+            $victoryRed.show()
+      }
+
+    }
+
     divers.forEach(function (d) {
-      d.$diver.on('swim', handleDiverSwim)
+      d.$diver.on('swim', handleRedDiverSwim, handleGreenDiverSwim)
     })
 
     function handleSharkMove() {
