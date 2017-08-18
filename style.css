@@ -18,6 +18,7 @@ body {
 #diver1 {
   background-color: #FF0000;
   right: 50%;
+  bottom: 1%;
 }
 
 #diver2 {
@@ -52,16 +53,11 @@ body {
 #shark3 {
   top: 70%;
   position: absolute;
-  height: 110px;
+  height: 80px;
   width: 150px;
   left: 600px;
 }
 
-.treasure {
-  height: 40px;
-  width: 40px;
-  background-color: rgb(244, 188, 66);
-}
 
 #gameOver, #victory {
   font-size: 300px;
