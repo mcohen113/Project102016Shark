@@ -64,11 +64,11 @@ $(document).ready(function() {
     var divers = [
       {
         $diver: $('#diver1'),
-        controls: {119: UP, 122: DOWN, 115: LEFT, 97: RIGHT }
+        controls: {105: UP, 109: DOWN, 107: LEFT, 106: RIGHT }
       },
       {
         $diver: $('#diver2'),
-        controls: {105: UP, 109: DOWN, 107: LEFT, 106: RIGHT }
+        controls: {119: UP, 122: DOWN, 115: LEFT, 97: RIGHT }
       }
     ]
 
